@@ -314,40 +314,23 @@ const JacobiGaussSolver = () => {
 
                         <div className="bg-white rounded-xl shadow-lg p-6">
                             <h2 className="text-2xl font-bold mb-4">Comparison</h2>
-                            <div className="overflow-x-auto">
-                                <table className="w-full border-collapse">
-                                    <thead>
-                                        <tr className="bg-gray-100">
-                                            <th className="p-3 border font-bold text-left">Aspect</th>
-                                            <th className="p-3 border font-bold bg-blue-50">Jacobi</th>
-                                            <th className="p-3 border font-bold bg-green-50">Gauss-Seidel</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td className="p-3 border font-semibold">Update Strategy</td>
-                                            <td className="p-3 border">Uses OLD values</td>
-                                            <td className="p-3 border">Uses UPDATED values</td>
-                                        </tr>
-                                        <tr className="bg-gray-50">
-                                            <td className="p-3 border font-semibold">Convergence</td>
-                                            <td className="p-3 border text-center">{results.j.conv ? '✓' : '✗'}</td>
-                                            <td className="p-3 border text-center">{results.gs.conv ? '✓' : '✗'}</td>
-                                        </tr>
-                                        <tr>
-                                            <td className="p-3 border font-semibold">Iterations</td>
-                                            <td className="p-3 border text-center font-bold text-blue-700">{results.j.iters.length}</td>
-                                            <td className="p-3 border text-center font-bold text-green-700">{results.gs.iters.length}</td>
-                                        </tr>
-                                        <tr className="bg-gray-50">
-                                            <td className="p-3 border font-semibold">Speed</td>
-                                            <td className="p-3 border text-center">{results.j.iters.length > results.gs.iters.length ? 'Slower' : results.j.iters.length < results.gs.iters.length ? 'Faster' : 'Same'}</td>
-                                            <td className="p-3 border text-center">{results.gs.iters.length < results.j.iters.length ? 'Faster ⚡' : results.gs.iters.length > results.j.iters.length ? 'Slower' : 'Same'}</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
+
+                            {/* Dynamic Comparison Paragraph */}
+                            <p className="text-gray-700 leading-relaxed text-lg">
+                                In this system, both the Jacobi and Gauss–Seidel methods converged to nearly
+                                the same solution, but at different speeds. Jacobi updates each variable using
+                                only the previous iteration’s values, which usually makes its convergence slower;
+                                in this case, it required
+                                <span className="font-bold text-blue-700"> {results.j.iters.length} iterations </span>
+                                to reach the tolerance of {tolerance}. In contrast, the Gauss–Seidel method uses
+                                newly updated values within the same iteration, allowing it to converge faster,
+                                completing the process in
+                                <span className="font-bold text-green-700"> {results.gs.iters.length} iterations</span>.
+                                Overall, Gauss–Seidel proved more efficient for this system due to its faster
+                                convergence behavior.
+                            </p>
                         </div>
+
                     </div>
                 )}
             </div>
