@@ -6,7 +6,7 @@ export default function BisectionMethodSolver() {
     const [decimalPlaces, setDecimalPlaces] = useState('3');
     const [results, setResults] = useState(null);
     const [error, setError] = useState('');
-    
+
 
     const evaluateFunction = (expr, x) => {
         try {
@@ -293,8 +293,8 @@ export default function BisectionMethodSolver() {
                                         <div
                                             key={idx}
                                             className={`border-2 rounded-xl p-6 ${isLast
-                                                    ? 'bg-gradient-to-r from-green-50 to-emerald-50 border-green-400'
-                                                    : 'bg-gradient-to-r from-gray-50 to-blue-50 border-indigo-200'
+                                                ? 'bg-gradient-to-r from-green-50 to-emerald-50 border-green-400'
+                                                : 'bg-gradient-to-r from-gray-50 to-blue-50 border-indigo-200'
                                                 }`}
                                         >
                                             {/* Iteration Header */}
